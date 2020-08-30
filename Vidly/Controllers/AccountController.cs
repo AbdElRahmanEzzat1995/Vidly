@@ -82,6 +82,12 @@ namespace Vidly.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Temp Code
+                    //var roleStroe = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStroe);
+                    //await roleManager.CreateAsync(new IdentityRole("AdminModifyCustomersMovies"));
+                    //await UserManager.AddToRoleAsync(user.Id, "AdminModifyCustomersMovies");
+                    ////End Of Temp Code
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }

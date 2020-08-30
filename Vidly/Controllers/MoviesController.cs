@@ -24,10 +24,13 @@ namespace Vidly.Controllers
         [Route("Movies/Index")]
         public ViewResult Index()
         {
-            var Movies = _context.Movies.Include(c => c.GenreType);
-            return View(Movies);
+            //var Movies = _context.Movies.Include(c => c.GenreType);
+            if (User.IsInRole("AdminModifyCustomersMovies"))
+                return View("Index"); 
+            return View("ReadOnlyList");
         }
 
+        [Authorize(Roles = "AdminModifyCustomersMovies")]
         [Route("Movies/Edit/{Id?}")]
         public ActionResult Edit(int id)
         {
@@ -42,6 +45,8 @@ namespace Vidly.Controllers
             return View("AddMovie",MGV);
         }
 
+
+        [Authorize(Roles = "AdminModifyCustomersMovies")]
         public ActionResult AddMovie()
         {
             MovieGenreView MGV = new MovieGenreView()
