@@ -5,6 +5,11 @@
 }
 
 <h2>Customers</h2>
+
+<div>
+    <button type="submit" class="btn btn-primary" >@Html.ActionLink("New Customer", "AddCustomer", "Customers")</button>
+</div>
+
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -16,7 +21,7 @@
 
         @foreach (var c in Model)
         {
-            string x = "Details/" + @c.id;
+            string x = "Edit/" + @c.Id;
             <tr>
                 <td><a href=@x> @c.Name</a></td>
                 <td>@c.MembershipType.Name</td>

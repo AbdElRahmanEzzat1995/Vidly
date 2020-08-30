@@ -1,11 +1,13 @@
-﻿@model List<Vidly.Models.Movie>
-
+﻿@model IEnumerable<Vidly.Models.Movie>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movies</h2>
+@using (Html.BeginForm("Index", "Movies"))
+{
+    <h2>Movies</h2>
+<button type="submit" class="btn btn-primary"><a href= "AddMovie">New Movie</a></button>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -17,13 +19,14 @@
 
         @foreach (var c in Model)
         {
-            string x = "Details/" + @c.Id;
+            string x = "Edit/" + @c.Id;
             <tr>
                 <td><a href=@x> @c.Name</a></td>
-                <td>@c.Genre</td>
+                <td>@c.GenreType.Name</td>
             </tr>
             x = null;
         }
     </tbody>
 
 </table>
+}

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -25,19 +24,59 @@ namespace Vidly.Controllers
         [Route("Movies/Index")]
         public ViewResult Index()
         {
-            var R = _context.Movies.ToList();
-            return View(R);
+            var Movies = _context.Movies.Include(c => c.GenreType);
+            return View(Movies);
         }
 
-        [Route("Movies/Details/{id}")]
-        public ActionResult Details(int id)
+        [Route("Movies/Edit/{Id?}")]
+        public ActionResult Edit(int id)
         {
-            var mvs = _context.Movies.ToList();
-            Movie m = mvs.ElementAt(id - 1);
-            if (mvs.Count == 0)
+            MovieGenreView MGV = new MovieGenreView()
+            {
+                Movie = _context.Movies.SingleOrDefault(m => m.Id == id),
+                GenreList = _context.GenreTypes
+            };
+            if (MGV.Movie == null)
                 return HttpNotFound();
 
-            return View(m);
+            return View("AddMovie",MGV);
+        }
+
+        public ActionResult AddMovie()
+        {
+            MovieGenreView MGV = new MovieGenreView()
+            {
+                //Movie = new Movie(),
+                GenreList = _context.GenreTypes
+            };
+            return View(MGV);
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(MovieGenreView G)
+        {
+            G.GenreList = _context.GenreTypes.ToList();
+            if (!ModelState.IsValid)
+            {
+                return View("AddMovie", G);
+            }
+            if (G.Movie.Id == 0)
+                _context.Movies.Add(G.Movie);
+            else
+            {
+                var MovInDb = _context.Movies.SingleOrDefault(c => c.Id == G.Movie.Id);
+                MovInDb.Id = G.Movie.Id;
+                MovInDb.Name = G.Movie.Name;
+                //MovInDb.DateAdded = G.Movie.DateAdded;
+                MovInDb.ReleaseDate = G.Movie.ReleaseDate;
+                MovInDb.NumberInStock = G.Movie.NumberInStock;
+                MovInDb.GenreTypeId = G.Movie.GenreTypeId;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
     }
 }

@@ -167,59 +167,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004081222145_InitialModel.cs" />
-    <Compile Include="Migrations\202004081222145_InitialModel.Designer.cs">
-      <DependentUpon>202004081222145_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004081555350_IsSubscribed.cs" />
-    <Compile Include="Migrations\202004081555350_IsSubscribed.Designer.cs">
-      <DependentUpon>202004081555350_IsSubscribed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004081612517_IsSubscribed1.cs" />
-    <Compile Include="Migrations\202004081612517_IsSubscribed1.Designer.cs">
-      <DependentUpon>202004081612517_IsSubscribed1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004081639259_PopulateMembershipTypes.cs" />
-    <Compile Include="Migrations\202004081639259_PopulateMembershipTypes.Designer.cs">
-      <DependentUpon>202004081639259_PopulateMembershipTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004081951050_Annotaion.cs" />
-    <Compile Include="Migrations\202004081951050_Annotaion.Designer.cs">
-      <DependentUpon>202004081951050_Annotaion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004091915354_a1.cs" />
-    <Compile Include="Migrations\202004091915354_a1.Designer.cs">
-      <DependentUpon>202004091915354_a1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004092020563_update.cs" />
-    <Compile Include="Migrations\202004092020563_update.Designer.cs">
-      <DependentUpon>202004092020563_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004092054223_birthdate.cs" />
-    <Compile Include="Migrations\202004092054223_birthdate.Designer.cs">
-      <DependentUpon>202004092054223_birthdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004092110042_birthdate1.cs" />
-    <Compile Include="Migrations\202004092110042_birthdate1.Designer.cs">
-      <DependentUpon>202004092110042_birthdate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004092137137_mov.cs" />
-    <Compile Include="Migrations\202004092137137_mov.Designer.cs">
-      <DependentUpon>202004092137137_mov.cs</DependentUpon>
+    <Compile Include="Migrations\202004142021037_l.cs" />
+    <Compile Include="Migrations\202004142021037_l.Designer.cs">
+      <DependentUpon>202004142021037_l.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\GenreTypes.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerMemberTypeView.cs" />
+    <Compile Include="ViewModels\MovieGenreView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Vidly.mdf" />
-    <Content Include="App_Data\Vidly_log.ldf">
-      <DependentUpon>Vidly.mdf</DependentUpon>
+    <Content Include="App_Data\aspnet-Vidly-20200225060605.mdf" />
+    <Content Include="App_Data\aspnet-Vidly-20200225060605_log.ldf">
+      <DependentUpon>aspnet-Vidly-20200225060605.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -271,10 +239,10 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\AddCustomer.cshtml" />
+    <Content Include="Views\Movies\AddMovie.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -283,35 +251,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004081222145_InitialModel.resx">
-      <DependentUpon>202004081222145_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081555350_IsSubscribed.resx">
-      <DependentUpon>202004081555350_IsSubscribed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081612517_IsSubscribed1.resx">
-      <DependentUpon>202004081612517_IsSubscribed1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081639259_PopulateMembershipTypes.resx">
-      <DependentUpon>202004081639259_PopulateMembershipTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081951050_Annotaion.resx">
-      <DependentUpon>202004081951050_Annotaion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004091915354_a1.resx">
-      <DependentUpon>202004091915354_a1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004092020563_update.resx">
-      <DependentUpon>202004092020563_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004092054223_birthdate.resx">
-      <DependentUpon>202004092054223_birthdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004092110042_birthdate1.resx">
-      <DependentUpon>202004092110042_birthdate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004092137137_mov.resx">
-      <DependentUpon>202004092137137_mov.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004142021037_l.resx">
+      <DependentUpon>202004142021037_l.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

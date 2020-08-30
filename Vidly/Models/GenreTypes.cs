@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Vidly.Models
 {
-    public class Customer
+    public class GenreTypes
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,17 +15,5 @@ namespace Vidly.Models
 
         [Required]
         public string Name { get; set; }
-
-        [Required]
-        public bool IsSubscribedToNewsLetter { get; set; }
-
-        
-        public MembershipType MembershipType  { get; set; }
-
-        [Required]
-        public int MembershipTypeId { get; set; }
-
-        [Min18YearsIfAMember]
-        public DateTime? Birthdate { get; set; }
     }
 }
