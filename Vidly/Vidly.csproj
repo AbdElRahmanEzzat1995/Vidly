@@ -187,6 +187,26 @@
     <Compile Include="Migrations\202004081951050_Annotaion.Designer.cs">
       <DependentUpon>202004081951050_Annotaion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004091915354_a1.cs" />
+    <Compile Include="Migrations\202004091915354_a1.Designer.cs">
+      <DependentUpon>202004091915354_a1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004092020563_update.cs" />
+    <Compile Include="Migrations\202004092020563_update.Designer.cs">
+      <DependentUpon>202004092020563_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004092054223_birthdate.cs" />
+    <Compile Include="Migrations\202004092054223_birthdate.Designer.cs">
+      <DependentUpon>202004092054223_birthdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004092110042_birthdate1.cs" />
+    <Compile Include="Migrations\202004092110042_birthdate1.Designer.cs">
+      <DependentUpon>202004092110042_birthdate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004092137137_mov.cs" />
+    <Compile Include="Migrations\202004092137137_mov.Designer.cs">
+      <DependentUpon>202004092137137_mov.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -250,6 +270,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
@@ -276,6 +297,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004081951050_Annotaion.resx">
       <DependentUpon>202004081951050_Annotaion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091915354_a1.resx">
+      <DependentUpon>202004091915354_a1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004092020563_update.resx">
+      <DependentUpon>202004092020563_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004092054223_birthdate.resx">
+      <DependentUpon>202004092054223_birthdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004092110042_birthdate1.resx">
+      <DependentUpon>202004092110042_birthdate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004092137137_mov.resx">
+      <DependentUpon>202004092137137_mov.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

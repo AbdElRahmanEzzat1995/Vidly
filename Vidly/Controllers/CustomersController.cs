@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,12 +10,23 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
+        ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
         // GET: Customers
         [Route("Customers/Index")]
         public ActionResult Index()
         {
-            var R = GetCustomers();
+            var R = _context.Customers.Include(c=>c.MembershipType);
             return View(R);
         }
 
@@ -22,35 +34,14 @@ namespace Vidly.Controllers
         [Route("Customers/Details/{id}")]
         public ActionResult Details(int id)
         {
-            //RandomMovieCustomerModel R = new RandomMovieCustomerModel();
-            //R.Customers = GetCustomers1();
-            //if (R.Customers == null)
-            //    return HttpNotFound();
-            //return View(R);
-            var customer = GetCustomers().SingleOrDefault(c => c.id == id);
-
-            if (customer == null)
+            var cus = _context.Customers.Include(c => c.MembershipType);
+            List<Customer> cl=cus.ToList();
+            Customer customer=cl.ElementAt(id - 1);
+            if (cl.Count == 0)
                 return HttpNotFound();
 
             return View(customer);
         }
-
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer { id = 1, Name = "John Smith" },
-                new Customer { id = 2, Name = "Mary Williams" }
-            };
-        }
-
-        private List<Customer> GetCustomers1()
-        {
-            return new List<Customer>
-            {
-                new Customer { id = 1, Name = "John Smith" },
-                new Customer { id = 2, Name = "Mary Williams" }
-            };
-        }
+        
     }
 }

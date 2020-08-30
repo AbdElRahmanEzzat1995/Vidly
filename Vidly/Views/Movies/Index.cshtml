@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Vidly.Models.Movie>
+﻿@model List<Vidly.Models.Movie>
 
 @{
     ViewBag.Title = "Index";
@@ -6,15 +6,24 @@
 }
 
 <h2>Movies</h2>
-<table>
-    <tr>
-        <td>Movie</td>
-    </tr>
-
-    @foreach (var c in Model)
-    {
+<table class="table table-bordered table-hover">
+    <thead>
         <tr>
-            <td> @c.Name</td>
+            <th>Movie</th>
+            <th>Genre</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+
+        @foreach (var c in Model)
+        {
+            string x = "Details/" + @c.Id;
+            <tr>
+                <td><a href=@x> @c.Name</a></td>
+                <td>@c.Genre</td>
+            </tr>
+            x = null;
+        }
+    </tbody>
+
 </table>

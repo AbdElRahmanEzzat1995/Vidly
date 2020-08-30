@@ -5,21 +5,24 @@
 }
 
 <h2>Customers</h2>
-<table>
-    <tr>
-        <th>Customer</th>
-    </tr>
-    
-</table>
-<table>
-
-    @foreach (var c in Model)
-    {
-        string x = "Details/" + @c.id;
-        <tr> 
-            <td><a href=@x> @c.Name</a></td>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>MembershipType</th>
         </tr>
-        x = null;
-    }
-</table>
+    </thead>
+    <tbody>
 
+        @foreach (var c in Model)
+        {
+            string x = "Details/" + @c.id;
+            <tr>
+                <td><a href=@x> @c.Name</a></td>
+                <td>@c.MembershipType.Name</td>
+            </tr>
+            x = null;
+        }
+    </tbody>
+
+</table>
