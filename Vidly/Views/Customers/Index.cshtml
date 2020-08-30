@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Vidly.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+<table>
+    <tr>
+        <th>Customer</th>
+    </tr>
+    
+</table>
+<table>
+
+    @foreach (var c in Model)
+    {
+        string x = "Details/" + @c.id;
+        <tr> 
+            <td><a href=@x> @c.Name</a></td>
+        </tr>
+        x = null;
+    }
+</table>
+
